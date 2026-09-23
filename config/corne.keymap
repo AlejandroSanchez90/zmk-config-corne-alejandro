@@ -50,9 +50,9 @@
         layer_3 {
             display-name = "CTRL";
             bindings = <
-&bt BT_CLR  &kp F1        &kp F2        &kp F3        &kp F4        &kp F5             &kp F6         &kp F7        &kp F8      &kp F9   &kp F10  &trans
-&kp CAPS    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4       &kp C_VOL_DN   &kp C_VOL_UP  &kp C_PLAY  &kp F11  &kp F12  &trans
-&trans      &trans        &trans        &trans        &trans        &trans             &kp C_BRI_DEC  &kp C_BRI_UP  &trans      &trans   &trans   &kp PRINTSCREEN
+&bt BT_CLR  &kp F1        &kp F2        &kp F3        &kp F4        &kp F5             &kp F6         &kp F7        &kp F8        &kp F9   &kp F10  &trans
+&kp CAPS    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4       &kp C_VOL_DN   &kp C_PLAY    &kp C_VOL_UP  &kp F11  &kp F12  &trans
+&trans      &trans        &trans        &trans        &trans        &trans             &kp C_BRI_DEC  &kp C_BRI_UP  &trans        &trans   &trans   &kp PRINTSCREEN
                                         &kp LCTRL     &kp ENTER     &kp PRINTSCREEN    &kp BSPC       &kp SPACE     &kp RSHFT
             >;
         };
