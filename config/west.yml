@@ -4,11 +4,16 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    # Additional modules containing boards/shields/custom code can be listed here as well
-    # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
   projects:
     - name: zmk
       remote: zmkfirmware
       import: app/west.yml
+    # Eyelash Corne board definition.
+    # Pinned to the last commit that still defines the board as
+    # `eyelash_corne_left/right` on stock ZMK v0.3 (2026-03-05). Newer commits
+    # moved it to a nice_nano_v2 shield that needs a forked ZMK + extra modules.
+    - name: eyelash_corne
+      url: https://github.com/a741725193/zmk-new_corne
+      revision: a7d93082b24f5b20e710a5db9b0e3141ade229b3
   self:
     path: config

@@ -1,2 +1,6 @@
-
 .zmk/
+build/
+zmk/
+modules/
+tools/
+.west/

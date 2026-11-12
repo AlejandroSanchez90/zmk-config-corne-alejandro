@@ -1,0 +1,94 @@
+/*
+ * Eyelash Corne. The 42 normal keys live in corne_shared.dtsi - edit them there.
+ * This file only adds the joystick (5-way) and knob extras.
+ *
+ * Key positions (J = joystick, K = knob press):
+ *  0  1  2  3  4  5        J6          7  8  9 10 11 12
+ * 13 14 15 16 17 18   J19 J20 J21     22 23 24 25 26 27
+ * 28 29 30 31 32 33  K34   J35        36 37 38 39 40 41
+ *          42 43 44                   45 46 47
+ */
+
+/* Must come before pointing.h is included. */
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1200 // default 600
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 20   // default 10
+
+#define COMBO_THUMB_LEFT_OUTER  42
+#define COMBO_THUMB_LEFT_INNER  44
+#define COMBO_THUMB_RIGHT_INNER 45
+#define COMBO_THUMB_RIGHT_OUTER 47
+
+#define HAS_RGB
+
+#include <input/processors.dtsi>
+#include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/rgb.h>
+#include "corne_shared.dtsi"
+
+/*
+ * N        = layer name from corne_shared.dtsi
+ * UP       = joystick up
+ * LEFT MID RIGHT = joystick left / press / right  (pass 3 bindings as one arg)
+ * KNOB     = knob press
+ * DOWN     = joystick down
+ */
+#define EYELASH_LAYER(N, UP, LMR, KNOB, DOWN) \
+    N##_L0 UP          N##_R0 \
+    N##_L1 LMR         N##_R1 \
+    N##_L2 KNOB DOWN   N##_R2 \
+    N##_LT             N##_RT
+
+#define JOY_MOUSE_LMR &mmv MOVE_LEFT &mkp LCLK &mmv MOVE_RIGHT
+
+/ {
+    scroll_encoder: scroll_encoder {
+        compatible = "zmk,behavior-sensor-rotate";
+        #sensor-binding-cells = <0>;
+        bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+        tap-ms = <30>;
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            display-name = "QWERTY";
+            bindings = <EYELASH_LAYER(QWERTY,
+                &kp UP,
+                &kp LEFT &kp ENTER &kp RIGHT,
+                &kp C_MUTE,
+                &kp DOWN)>;
+            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
+        };
+
+        lower_layer {
+            display-name = "NUMBER";
+            bindings = <EYELASH_LAYER(NUMBER,
+                &mmv MOVE_UP,
+                JOY_MOUSE_LMR,
+                &kp C_MUTE,
+                &mmv MOVE_DOWN)>;
+            sensor-bindings = <&scroll_encoder>;
+        };
+
+        raise_layer {
+            display-name = "SYMBOL";
+            bindings = <EYELASH_LAYER(SYMBOL,
+                &mmv MOVE_UP,
+                JOY_MOUSE_LMR,
+                &trans,
+                &mmv MOVE_DOWN)>;
+            sensor-bindings = <&scroll_encoder>;
+        };
+
+        layer_3 {
+            display-name = "CTRL";
+            bindings = <EYELASH_LAYER(CTRL,
+                &rgb_ug RGB_HUI,
+                &rgb_ug RGB_SAD &mkp LCLK &rgb_ug RGB_SAI,
+                &trans,
+                &rgb_ug RGB_HUD)>;
+            sensor-bindings = <&scroll_encoder>;
+        };
+    };
+};
