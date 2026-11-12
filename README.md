@@ -4,8 +4,8 @@ One keymap, two keyboards:
 
 | Keyboard | Keys | Keymap file |
 |---|---|---|
-| Classic Corne (nice!nano v2 + nice!view) | 42 | `config/corne.keymap` |
-| Eyelash Corne | 42 + joystick + knob | `config/eyelash_corne.keymap` |
+| Typeractive Corne (classic, nice!nano v2 + nice!view) | 42 | `config/corne.keymap` |
+| Alibaba Corne (Eyelash) | 42 + joystick + knob | `config/eyelash_corne.keymap` |
 
 **Edit keys in `config/corne_shared.dtsi`.** Both keyboards use it, so they always match.
 The Eyelash file only adds the joystick/knob extras (arrows and Enter on base, mouse on NUMBER/SYMBOL,
@@ -13,9 +13,9 @@ RGB on CTRL, knob = volume / scroll).
 
 Every push builds firmware for both in GitHub Actions. Download the zip from the run:
 
-- `corne_left…` / `corne_right…` → classic Corne
-- `eyelash_corne_left…` / `eyelash_corne_right…` → Eyelash
-- `eyelash_corne_studio_left` → Eyelash left with ZMK Studio enabled
+- `Typeractive-Corne-left` / `Typeractive-Corne-right` → classic Corne
+- `Alibaba-Corne-left` / `Alibaba-Corne-right` → Eyelash Corne
+- `Alibaba-Corne-left-studio` → Eyelash left with ZMK Studio enabled (optional)
 - `settings_reset` → flash to each half to clear Bluetooth pairings (works on both)
 
 ## Keymap
