@@ -8,10 +8,10 @@
  *          36 37 38     39 40 41
  */
 
-#define COMBO_THUMB_LEFT_OUTER  36
-#define COMBO_THUMB_LEFT_INNER  38
-#define COMBO_THUMB_RIGHT_INNER 39
-#define COMBO_THUMB_RIGHT_OUTER 41
+#define COMBO_D 15
+#define COMBO_F 16
+#define COMBO_J 19
+#define COMBO_K 20
 
 #include "corne_shared.dtsi"
 
@@ -31,17 +31,17 @@
         };
 
         lower_layer {
-            display-name = "NUMBER";
+            display-name = "LOWER";
             bindings = <CORNE_LAYER(NUMBER)>;
         };
 
         raise_layer {
-            display-name = "SYMBOL";
+            display-name = "RAISE";
             bindings = <CORNE_LAYER(SYMBOL)>;
         };
 
         layer_3 {
-            display-name = "CTRL";
+            display-name = "FUNC";
             bindings = <CORNE_LAYER(CTRL)>;
         };
     };

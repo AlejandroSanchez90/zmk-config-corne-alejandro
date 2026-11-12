@@ -13,10 +13,10 @@
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1200 // default 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 20   // default 10
 
-#define COMBO_THUMB_LEFT_OUTER  42
-#define COMBO_THUMB_LEFT_INNER  44
-#define COMBO_THUMB_RIGHT_INNER 45
-#define COMBO_THUMB_RIGHT_OUTER 47
+#define COMBO_D 16
+#define COMBO_F 17
+#define COMBO_J 23
+#define COMBO_K 24
 
 #define HAS_RGB
 
@@ -62,7 +62,7 @@
         };
 
         lower_layer {
-            display-name = "NUMBER";
+            display-name = "LOWER";
             bindings = <EYELASH_LAYER(NUMBER,
                 &mmv MOVE_UP,
                 JOY_MOUSE_LMR,
@@ -72,7 +72,7 @@
         };
 
         raise_layer {
-            display-name = "SYMBOL";
+            display-name = "RAISE";
             bindings = <EYELASH_LAYER(SYMBOL,
                 &mmv MOVE_UP,
                 JOY_MOUSE_LMR,
@@ -82,7 +82,7 @@
         };
 
         layer_3 {
-            display-name = "CTRL";
+            display-name = "FUNC";
             bindings = <EYELASH_LAYER(CTRL,
                 &rgb_ug RGB_HUI,
                 &rgb_ug RGB_SAD &mkp LCLK &rgb_ug RGB_SAI,
