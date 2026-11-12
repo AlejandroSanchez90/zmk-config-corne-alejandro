@@ -22,13 +22,8 @@ Every push builds firmware for both in GitHub Actions. Download the zip from the
 
 Drawn automatically by [keymap-drawer](https://github.com/caksoylar/keymap-drawer) on every push that touches `config/`
 (the `[Draw]` commits). Don't edit the files in `keymap-drawer/` by hand.
-
-### Classic Corne
+It shows the 42 shared keys, which are the same on both keyboards.
 
 ![Corne keymap](keymap-drawer/corne.svg)
-
-### Eyelash Corne
-
-![Eyelash Corne keymap](keymap-drawer/eyelash_corne.svg)
 
 Layout inspired by [markstos' Corne layout](https://mark.stosberg.com/markstos-corne-3x5-1-keyboard-layout/).
