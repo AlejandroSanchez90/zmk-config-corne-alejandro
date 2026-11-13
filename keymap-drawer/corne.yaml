@@ -156,9 +156,9 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:apple-keyboard-caps$$
-  - Sft+$$mdi:backspace-reverse-outline$$
-  - Ctl+INS
-  - Sft+INS
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:monitor-screenshot$$', s: Win clip}
+  - {t: '$$mdi:monitor-screenshot$$', s: Mac clip}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - $$mdi:bluetooth-off$$
   - {t: '$$mdi:minus-circle-outline$$', type: none}
@@ -173,7 +173,5 @@ layers:
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
 combos:
-- p: [15, 16]
-  k: {t: '-', s: _}
 - p: [19, 20]
   k: $$mdi:keyboard-esc$$

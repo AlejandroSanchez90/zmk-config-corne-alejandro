@@ -8,8 +8,6 @@
  *          36 37 38     39 40 41
  */
 
-#define COMBO_D 15
-#define COMBO_F 16
 #define COMBO_J 19
 #define COMBO_K 20
 

@@ -13,8 +13,6 @@
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1200 // default 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 20   // default 10
 
-#define COMBO_D 16
-#define COMBO_F 17
 #define COMBO_J 23
 #define COMBO_K 24
 

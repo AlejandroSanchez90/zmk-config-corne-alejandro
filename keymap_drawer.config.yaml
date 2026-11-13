@@ -117,6 +117,11 @@ parse_config:
     type: trans
 
   raw_binding_map:
+    # Screenshots (area -> clipboard) and copy/paste, Windows + Mac (Ctrl<->Cmd swap)
+    "&kp LC(LG(LS(N4)))": {t: "$$mdi:monitor-screenshot$$", s: "Mac clip"}
+    "&kp LG(LS(S))": {t: "$$mdi:monitor-screenshot$$", s: "Win clip"}
+    "&kp LC(C)": "COPY"
+    "&kp LC(V)": "PASTE"
     # Mac screenshots
     "&kp LG(LC(LS(N4)))": {t: "$$mdi:monitor-screenshot$$", s: "to clipboard"}
     "&kp LG(LS(N5))": {t: "$$mdi:monitor-screenshot$$", s: "save"}

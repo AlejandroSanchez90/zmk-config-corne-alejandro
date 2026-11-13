@@ -18,12 +18,23 @@
  * they are LOWER / RAISE / FUNC.
  *
  * Before including this file, a keymap must define the key positions
- * COMBO_D, COMBO_F, COMBO_J, COMBO_K (they differ per board).
+ * COMBO_J, COMBO_K (they differ per board).
  *
- * Only changes from markstos stock (needed for ZMK / wireless):
+ * Changes from markstos stock:
+ *   ZMK / wireless:
  *   - Bluetooth profile select + clear on FUNC (QMK version is wired, no BT).
  *   - QK_BOOT -> &bootloader.
+ *   Windows + Mac instead of Linux (Mac uses Control <-> Command swap in
+ *   System Settings > Keyboard > Modifier Keys, so Ctrl shortcuts work on both):
+ *   - RAISE C/V: Linux COPY/PASTE codes -> Ctrl+C / Ctrl+V.
+ *   - FUNC X/C/V: Shift+Del / Ctrl+Ins / Shift+Ins -> off / Windows area
+ *     screenshot / Mac area screenshot (both copy to clipboard).
+ *   - D+F dash combo removed (it broke `df` in nvim). Dash is RAISE + D.
  */
+
+/* Screenshots: select an area with the mouse, copied to the clipboard */
+#define WIN_SHOT_CLIP &kp LG(LS(S))       // Win+Shift+S
+#define MAC_SHOT_CLIP &kp LC(LG(LS(N4)))  // Cmd+Ctrl+Shift+4 (same with the swap on)
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
@@ -59,7 +70,7 @@
 #define SYMBOL_R0 &none   &none     &none    &kp BSLH   &kp PIPE     &trans
 #define SYMBOL_L1 &trans  &kp HOME  &kp END  &kp MINUS  &kp EQUAL    &kp PG_DN
 #define SYMBOL_R1 &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &kp K_APP  &trans
-#define SYMBOL_L2 &trans  &kp LT    &kp GT   &kp K_COPY &kp K_PASTE  &kp SEMI
+#define SYMBOL_L2 &trans  &kp LT    &kp GT   &kp LC(C)  &kp LC(V)    &kp SEMI
 #define SYMBOL_R2 &kp C_PP  &kp C_PREV  &kp C_NEXT  &kp C_VOL_DN  &kp C_VOL_UP  &trans
 #define SYMBOL_LT                   &thumb_mt LCTRL ESC  &trans  &none
 #define SYMBOL_RT &trans  &trans  &trans
@@ -69,7 +80,7 @@
 #define CTRL_R0 &kp F6  &kp F7    &kp F8      &kp F9       &kp F10      &trans
 #define CTRL_L1 &trans  &kp F11   &kp F12     &none        &none        &none
 #define CTRL_R1 &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &trans
-#define CTRL_L2 &trans  &kp CAPS  &kp LS(DEL) &kp LC(INS)  &kp LS(INS)  &none
+#define CTRL_L2 &trans  &kp CAPS  &none       WIN_SHOT_CLIP  MAC_SHOT_CLIP  &none
 #define CTRL_R2 &bt BT_CLR  &none  &none  &none  &bootloader  &none
 #define CTRL_LT                   &none  &none  &none
 #define CTRL_RT &none  &none  &none
@@ -104,13 +115,6 @@
 
     combos {
         compatible = "zmk,combos";
-
-        /* D+F = dash (on LOWER these are 3+4, also dash) */
-        df_dash {
-            bindings = <&kp MINUS>;
-            key-positions = <COMBO_D COMBO_F>;
-            timeout-ms = <40>;
-        };
 
         /* J+K = Escape, for Vim */
         jk_esc {
