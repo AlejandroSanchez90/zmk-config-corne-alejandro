@@ -15,7 +15,6 @@ Every push builds firmware for both in GitHub Actions. Download the zip from the
 
 - `Typeractive-Corne-left` / `Typeractive-Corne-right` → classic Corne
 - `Alibaba-Corne-left` / `Alibaba-Corne-right` → Eyelash Corne
-- `Alibaba-Corne-left-studio` → Eyelash left with ZMK Studio enabled (optional)
 - `settings_reset` → flash to each half to clear Bluetooth pairings (works on both)
 
 ## Keymap

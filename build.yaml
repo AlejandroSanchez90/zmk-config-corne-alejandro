@@ -16,11 +16,6 @@ include:
   - board: eyelash_corne_right
     shield: nice_view
     artifact-name: Alibaba-Corne-right
-  - board: eyelash_corne_left
-    shield: nice_view
-    snippet: studio-rpc-usb-uart
-    cmake-args: -DCONFIG_ZMK_STUDIO=y
-    artifact-name: Alibaba-Corne-left-studio
 
   # Works for both (flash to each half to wipe pairings)
   - board: nice_nano_v2
