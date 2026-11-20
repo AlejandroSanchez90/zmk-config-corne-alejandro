@@ -92,7 +92,10 @@
 
 / {
     behaviors {
-        /* Thumb layer-tap: hold-preferred, 125 ms (markstos TAPPING_TERM_THUMB). */
+        /* Thumb layer-tap: hold-preferred, 125 ms (markstos TAPPING_TERM_THUMB).
+         * require-prior-idle: pressed within 150 ms of another key = instant tap
+         *   (no wait-for-release lag while typing).
+         * quick-tap: tap, then press-and-hold within 150 ms = auto-repeat. */
         thumb_lt: thumb_lt {
             compatible = "zmk,behavior-hold-tap";
             display-name = "Thumb Layer-Tap";
@@ -100,6 +103,8 @@
             bindings = <&mo>, <&kp>;
             flavor = "hold-preferred";
             tapping-term-ms = <125>;
+            require-prior-idle-ms = <150>;
+            quick-tap-ms = <150>;
         };
 
         /* Thumb mod-tap: same timing. */
@@ -110,6 +115,8 @@
             bindings = <&kp>, <&kp>;
             flavor = "hold-preferred";
             tapping-term-ms = <125>;
+            require-prior-idle-ms = <150>;
+            quick-tap-ms = <150>;
         };
     };
 
